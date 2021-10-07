@@ -28,9 +28,9 @@ public class Cliente {
 
     @Override
     public String toString() {
-        return "Cliente{" +
-                "Nome='" + nome + '\'' +
-                ", E-mail='" + email + '\'' +
-                '}';
+        StringBuilder retorno = new StringBuilder();
+        retorno.append("Nome: " +nome);
+        retorno.append("E-mail: " +email);
+        return retorno.toString();
     }
 }
