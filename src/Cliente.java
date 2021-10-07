@@ -30,7 +30,7 @@ public class Cliente {
     public String toString() {
         StringBuilder retorno = new StringBuilder();
         retorno.append("Nome: " +nome);
-        retorno.append("E-mail: " +email);
+        retorno.append("\tE-mail: " +email);
         return retorno.toString();
     }
 }

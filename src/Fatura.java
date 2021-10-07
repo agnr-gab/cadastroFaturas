@@ -1,12 +1,12 @@
 public class Fatura {
+    private Cliente cliente;
     private double valor;
     private String dataVencimento;
-    Cliente cliente;
 
     public Fatura() {
     }
 
-    public Fatura(double valor, String dataVencimento, Cliente cliente) {
+    public Fatura(Cliente cliente, double valor, String dataVencimento) {
         this.valor = valor;
         this.dataVencimento = dataVencimento;
         this.cliente = cliente;
@@ -27,11 +27,13 @@ public class Fatura {
     public void setDataVencimento(String dataVencimento) {
         this.dataVencimento = dataVencimento;
     }
+
     @Override
-    public String toString () {
+    public String toString() {
         StringBuilder retorno = new StringBuilder();
-        retorno.append("Valor: R$" +valor);
-        retorno.append("Data de Vencimento: " +dataVencimento);
+        retorno.append("Cliente\n" + cliente);
+        retorno.append("\tValor: R$" + valor);
+        retorno.append("\tData de Vencimento: " + dataVencimento);
         return retorno.toString();
     }
 }
