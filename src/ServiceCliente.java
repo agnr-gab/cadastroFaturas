@@ -4,9 +4,19 @@ import java.util.List;
 public class ServiceCliente {
     private static List<Cliente> listaClientes = new ArrayList<>();
 
-    public static void verificarEmail(String email) throws Exception{
+    public static Cliente verificarClienteCadastrado(String email) throws Exception {
+        for (Cliente referenciaCliente : listaClientes) {
+            if (referenciaCliente.getEmail().equals(email)) {
+                return referenciaCliente;
+            }
+
+        }
+        throw new Exception("Cliente não cadastrado no banco de dados! Verifique novamente!");
+    }
+
+    public static void verificarEmail(String email) throws Exception {
         if (!email.contains("@")) {
-           throw new Exception("O Email digitado não é válido. Tente novamente!");
+            throw new Exception("O Email digitado não é válido. Tente novamente!");
         } else {
             System.out.println("___Cliente cadastrado com sucesso!___");
         }
