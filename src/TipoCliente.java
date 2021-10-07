@@ -1,2 +1,3 @@
-package PACKAGE_NAME;public enum TipoCliente {
+public enum TipoCliente {
+    FISICA, JURIDICA
 }
