@@ -28,6 +28,14 @@ public class Fatura {
         this.dataVencimento = dataVencimento;
     }
 
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
     @Override
     public String toString() {
         StringBuilder retorno = new StringBuilder();
