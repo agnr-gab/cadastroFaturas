@@ -10,6 +10,11 @@ public class Cliente {
         return tipoCliente;
     }
 
+    public Cliente(String nome, String email) {
+        this.nome = nome;
+        this.email = email;
+    }
+
     public Cliente(String nome, String email, TipoCliente tipoCliente) {
         this.nome = nome;
         this.email = email;
