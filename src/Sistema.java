@@ -68,9 +68,10 @@ public class Sistema {
                     break;
                 case 4:
                     loop = false;
+                    System.out.println("\t\t\t\t_______Sistema encerrado!_______ \n\t_______Obrigado pela utilização dos nossos serviços_______");
                     break;
                 default:
-                    System.out.println("Opção digitada é invalida. Verifique e tente novamente!");
+                    System.out.println("_______Opção digitada é invalida. Verifique e tente novamente!_______");
                     break;
             }
 
