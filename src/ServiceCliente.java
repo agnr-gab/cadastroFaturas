@@ -8,9 +8,11 @@ public class ServiceCliente {
         if (!email.contains("@")) {
             //não aceita email sem @
             throw new Exception("O Email digitado não é válido. Tente novamente!");
-        } else {
-            System.out.println("___Cliente cadastrado com sucesso!___");
         }
+        /* verificar retorno está voltando mesmo quando o email não é encontrado
+        else {
+            System.out.println("___Cliente cadastrado com sucesso!___");
+        }*/
     }
 
     public static Cliente verificarEmailExistente(String email) throws Exception {
@@ -27,5 +29,13 @@ public class ServiceCliente {
         Cliente cliente = new Cliente(nome, email);
         listaClientes.add(cliente);
         return cliente;
+    }
+
+    public static List<TipoCliente> escolherTipoCliente() {
+        List<TipoCliente> listaTiposClientes = new ArrayList<>();
+        for (TipoCliente referenciaTipoCliente : TipoCliente.values()) {
+            listaTiposClientes.add(referenciaTipoCliente);
+        }
+        return listaTiposClientes;
     }
 }
