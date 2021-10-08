@@ -51,7 +51,7 @@ public class Fatura {
         retorno.append("Cliente\n" + cliente);
         retorno.append("\tValor: R$" + valor);
         retorno.append("\tData de Vencimento: " + dataVencimento);
-        retorno.append("\tQuantidade de faturas: " + );
+        retorno.append("\tQuantidade de faturas: " +getListaFaturas().size());
         return retorno.toString();
     }
 }
