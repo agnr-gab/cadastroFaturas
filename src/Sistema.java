@@ -31,7 +31,7 @@ public class Sistema {
         String nome = leitorDados("Digite o nome do cliente:").nextLine();
         String email = leitorDados("Digite o email do cliente:").nextLine();
         ServiceCliente.verificarEmailInvalido(email);
-        return ServiceCliente.cadastrarCliente(nome, email, tipo);
+        return ServiceCliente.cadastrarCliente(nome, email /*tipo*/);
     }
 
     public static Fatura cadastrarFatura() throws Exception {
@@ -47,5 +47,34 @@ public class Sistema {
         ServiceCliente.verificarEmailInvalido(email);
         ServiceCliente.verificarEmailExistente(email);
         return ServiceFatura.verificarFaturas(email);
+    }
+
+    public static boolean executar() throws Exception {
+        boolean loop = true;
+        while (loop) {
+            menu();
+            int entradaUsuario = leitorDados("Digite a opção desejada!").nextInt();
+            switch (entradaUsuario) {
+                case 1:
+                    Cliente cliente = cadastrarCliente();
+                    System.out.println(cliente);
+                    break;
+                case 2:
+                    Fatura fatura = cadastrarFatura();
+                    break;
+                case 3:
+                    List<Fatura> listaFaturas = verificarFaturas();
+                    System.out.println(listaFaturas);
+                    break;
+                case 4:
+                    loop = false;
+                    break;
+                default:
+                    System.out.println("Opção digitada é invalida. Verifique e tente novamente!");
+                    break;
+            }
+
+        }
+        return loop;
     }
 }
