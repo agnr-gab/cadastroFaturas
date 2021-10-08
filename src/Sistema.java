@@ -1,3 +1,4 @@
+import java.util.List;
 import java.util.Scanner;
 
 public class Sistema {
@@ -16,11 +17,21 @@ public class Sistema {
 
     }
 
+    public static void tipoClientes() {
+        List<TipoCliente> listaTiposClientes = ServiceCliente.escolherTipoCliente();
+        System.out.println("_______Escolha a definição do seu cadastro_______");
+        for (int i = 0; i < listaTiposClientes.size(); i++) {
+            System.out.println(listaTiposClientes.get(i));
+
+        }
+        String tipoCliente = leitorDados("Digite:").nextLine();
+    }
+
     public static Cliente cadastrarCliente() throws Exception {
         String nome = leitorDados("Digite o nome do cliente:").nextLine();
         String email = leitorDados("Digite o email do cliente:").nextLine();
         ServiceCliente.verificarEmailInvalido(email);
-        return ServiceCliente.cadastrarCliente(nome, email);
+        return ServiceCliente.cadastrarCliente(nome, email, tipo);
     }
 
     public static Fatura cadastrarFatura() throws Exception {
@@ -29,5 +40,12 @@ public class Sistema {
         String dataVencimento = leitorDados("Digite a data de vencimento da fatura:").nextLine();
         ServiceCliente.verificarEmailInvalido(email);
         return ServiceFatura.cadastrarFatura(email, valor, dataVencimento);
+    }
+
+    public static List<Fatura> verificarFaturas() throws Exception {
+        String email = leitorDados("Digite o email do cliente cadastrado:").nextLine();
+        ServiceCliente.verificarEmailInvalido(email);
+        ServiceCliente.verificarEmailExistente(email);
+        return ServiceFatura.verificarFaturas(email);
     }
 }

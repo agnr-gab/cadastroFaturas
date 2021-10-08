@@ -1,6 +1,9 @@
 public class Main {
     public static void main(String[] args) throws Exception {
-        Sistema.cadastrarCliente();
+        try {
 
+        } catch (Exception erro) {
+            System.out.println(erro.getMessage());
+        }
     }
 }

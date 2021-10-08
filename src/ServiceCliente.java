@@ -25,8 +25,9 @@ public class ServiceCliente {
         throw new Exception("Cliente não cadastrado no banco de dados! Verifique novamente!");
     }
 
-    public static Cliente cadastrarCliente(String nome, String email) {
-        Cliente cliente = new Cliente(nome, email);
+    public static Cliente cadastrarCliente(String nome, String email, String tipo) throws Exception{
+        String tipoCliente = verificarTipo(tipoCliente);
+        Cliente cliente = new Cliente(nome, email, tipoCliente);
         listaClientes.add(cliente);
         return cliente;
     }
@@ -37,5 +38,14 @@ public class ServiceCliente {
             listaTiposClientes.add(referenciaTipoCliente);
         }
         return listaTiposClientes;
+    }
+
+    public static TipoCliente verificarTipo(String tipoCliente) throws Exception {
+        for (TipoCliente referenciaTipoCliente : TipoCliente.values()) {
+            if (tipoCliente.equalsIgnoreCase(String.valueOf(referenciaTipoCliente))) {
+                return referenciaTipoCliente;
+            }
+        }
+        throw new Exception("Entrada inválida. Verifique e tente novamente!");
     }
 }

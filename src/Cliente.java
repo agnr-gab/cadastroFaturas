@@ -1,13 +1,19 @@
 public class Cliente {
     private String nome;
     private String email;
+    private TipoCliente tipoCliente;
 
     public Cliente() {
     }
 
-    public Cliente(String nome, String email) {
+    public TipoCliente getTipoCliente() {
+        return tipoCliente;
+    }
+
+    public Cliente(String nome, String email, TipoCliente tipoCliente) {
         this.nome = nome;
         this.email = email;
+        this.tipoCliente = tipoCliente;
     }
 
     public String getNome() {
@@ -31,6 +37,8 @@ public class Cliente {
         StringBuilder retorno = new StringBuilder();
         retorno.append("Nome: " +nome);
         retorno.append("\tE-mail: " +email);
+        retorno.append("\tDefinição da conta: " +tipoCliente);
+
         return retorno.toString();
     }
 }
